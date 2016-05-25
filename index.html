@@ -5,16 +5,61 @@
 
         <style>
             body {
+                background-color: rgb(240, 240, 241);
                 -webkit-touch-callout: none;
                 user-select: none;
                 text-align: center;
-                padding-top: 120px;
+                padding-top: 20px;
+                font-family: helvetica, sans-serif;
+                width: 100%;
+                height: 100%;
+            }
+            #wrapper {
+                width: 1080px;
+                height: 100%;
+                display: flex;
+                margin: auto;
+            }
+            h1 {
+                color: rgb(66, 66, 66);
+                font-size: 42px;
+                margin: 20px 0;
+            }
+            section {
+                font-size: 20px;
+                line-height: 30px;
+                color: rgb(198, 198, 198);
+            }
+            aside {
+                margin-left: -40px;
+                position: relative;
+                top: 200px;
+                font-size: 16px;
+                color: rgb(0, 0, 0);
+                transform: rotate(-90deg);
+                font-family: consolas, monospace;
+                height: 100%;
+                display: block;
+            }
+                aside em {
+                    color: silver;
+                }
+            nav {
+                flex: 1;
+                height: 100%;
+            }
+            article {
+                flex: 1;
+                height: 100%;
+                padding: 40px;
+                text-align: left;
             }
             #container {
                 position: relative;
                 width: 400px;
                 height: 400px;
                 margin: auto;
+                left: -5%;
             }
                 #container svg {
                     width: 100%;
@@ -31,11 +76,26 @@
     </head>
 
     <body>
-        <div id="container">
-            <svg></svg>
+        <div id="wrapper">
+            <aside>
+                CONTACT: &nbsp; &lt; simon<em>[AT]</em>simbro<em>[DOT]</em>me &gt;
+            </aside>
+
+            <nav id="container">
+                <svg></svg>
+            </nav>
+
+            <article>
+                <h1>CUBENAV</h1>
+
+                <section>
+                    <p>This is a concept for a 3D navigation system, based on mapping navigational links to the nodes of a 3D shape, in this case a cube.</p>
+                    <p>The drawback of this approach is that using a shape like a cube, while aesthetically pleasing, limits you to having exactly eight navigation links.</p>
+                </section>
+            </article>
         </div>
 
-        <script src="https://raw.githubusercontent.com/chrisbateman/impetus/master/dist/impetus.min.js"></script>
+        <script src="impetus.min.js"></script>
 
         <script>
             var previousMouseX = 0,
@@ -192,8 +252,8 @@
             var initialize = (function(container) {
                 createSpace(container);
 
-                rotate(0, 2, 30);
-                rotate(1, 2, 30);
+                rotate(0, 2, 32);
+                rotate(1, 2, 32);
 
                 draw();
             })(document.getElementById('container'));
